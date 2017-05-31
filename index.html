@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>This is Office</title>
+</head>
+
+<body>
+
+<div class="" ng-controller="officeController">
+
+<a href="#first">First</a>
+<a href="#second">Second</a>
+
+<div class="">
+    <ul>
+        <li ng-repeat="department in departments">
+        <a href="#departments/{{department.id}}">{{department.name}}</a>
+        </li>
+    </ul>
+</div>
+
+
+</div>
+
+<div ng-view></div>
+
+<script type="text/ng-template" id="first.html">
+    <div>This is first template</div>
+</script>
+
+<script type="text/ng-template" id="second.html">
+    <div>This is second template</div>
+    <div class="">{{msg}}</div>
+</script>
+
+<script type="text/ng-template" id="department.html">
+    <div>In this dep {{params.departmentId}} there are {{employeesInDepartment}} employees</div>
+    <div class="">
+        <ul>
+            <li ng-repeat="employee in employees" ng-if="employee.department==params.departmentId">
+            <a href="#employees/{{employee.id}}">{{employee.name}}</a>
+            </li>
+        </ul>
+    </div>
+</script>
+
+<script type="text/ng-template" id="employee.html">
+    <div>Имя: {{employee.name}}</div>
+    <div>Отдел: {{departmentName}}</div>
+    <div>Телефон: {{employee.phone}}</div>
+    <div>Фото: <img src="{{employeePhoto}}"></div>
+</script>
+
+
+<script src="angular.min.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="angular-local-storage.min.js"></script>
+<script src="app.js"></script>
+
+
+
+
+</body>
+</html>
