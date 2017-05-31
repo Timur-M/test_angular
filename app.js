@@ -46,13 +46,6 @@ console.log(officeApp);
 officeApp.config( function($routeProvider,$locationProvider) {
     $locationProvider.hashPrefix('');
     $routeProvider
-    .when('/first', {
-        templateUrl: 'first.html'
-    })
-    .when('/second', {
-        templateUrl: 'second.html',
-        controller: 'secondController'
-    })
     .when('/departments/:departmentId', {
         templateUrl: 'department.html',
         controller: 'departmentController'
@@ -101,11 +94,7 @@ officeApp.controller("departmentController", function ($scope, $routeParams, $ht
     $scope.employeesInDepartment = i;
 });
 
-officeApp.controller("secondController", function ($scope) {
 
-    $scope.msg = "SECOND";
-
-});
 
 }
 
